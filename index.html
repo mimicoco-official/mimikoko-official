@@ -47,6 +47,7 @@
       .support-inner{width:min(720px,90%);margin:0 auto}
       .support-message{margin-top:280px}
       .support h2{color:#fff;-webkit-text-stroke:1px #493c35;text-shadow:1px 1px 0 #493c35,-1px -1px 0 #493c35}
+      .icon-play{display:inline-block!important;width:0!important;height:0!important;margin:0 0 0 2px!important;padding:0!important;border-top:6px solid transparent!important;border-bottom:6px solid transparent!important;border-left:9px solid currentColor!important;border-radius:0!important;background:transparent!important}.story-button .icon-play{color:#fff}.playlist-button .icon-play{color:#c8784b;border-top-width:5px!important;border-bottom-width:5px!important;border-left-width:7px!important}.music-play::after{content:"";display:block;margin-left:3px;border-top:7px solid transparent;border-bottom:7px solid transparent;border-left:10px solid #fff}.icon-arrow{display:inline-block!important;width:10px!important;height:10px!important;margin-left:10px!important;padding:0!important;border-top:2px solid currentColor!important;border-right:2px solid currentColor!important;transform:rotate(45deg) translateY(-1px);vertical-align:middle}.button.primary .icon-arrow{color:#fff}.cta .button.primary .icon-arrow{color:#d7891e}.icon-down{display:inline-block!important;width:7px!important;height:7px!important;margin:0 0 2px 7px!important;padding:0!important;border-right:1.5px solid currentColor!important;border-bottom:1.5px solid currentColor!important;transform:rotate(45deg);vertical-align:middle}.icon-external{display:block!important;width:11px!important;height:11px!important;margin:0!important;padding:0!important;border-top:2px solid #796d64!important;border-right:2px solid #796d64!important;transform:rotate(45deg);font-size:0!important}.shop-card .icon-external::before{content:"";display:block;width:2px;height:13px;background:#796d64;transform:rotate(-45deg) translate(5px,-3px);transform-origin:top}
       .playlist-button{display:inline-flex;align-items:center;gap:13px;margin-top:14px;padding:13px 18px 13px 21px;border-radius:99px;background:#c8784b;color:#fffdf7;font-size:13px;font-weight:900;box-shadow:0 4px 0 #9f5933;transition:.2s}.playlist-button:hover{transform:translateY(2px);box-shadow:0 2px 0 #9f5933}.playlist-button span{display:grid;place-items:center;width:24px;height:24px;border-radius:50%;background:#fffdf7;color:#c8784b;font-size:9px}.kamishibai{background:#fff8f4}.kamishibai-card{display:grid;grid-template-columns:1.08fr .92fr;align-items:center;max-width:1040px;margin:auto;overflow:hidden;border-radius:30px;background:#fffdf7;box-shadow:10px 10px 0 #efb4bf;transition:.2s}.kamishibai-card:hover{transform:translateY(-4px)}.kamishibai-card img{display:block;width:100%;height:100%;min-height:330px;object-fit:cover}.kamishibai-card>div{padding:35px 38px}.kamishibai-card h2{margin:10px 0 15px;font-size:clamp(31px,4vw,48px);letter-spacing:.06em}.kamishibai-card p:not(.section-label){font-size:14px;line-height:1.9;margin:0 0 21px}.kamishibai-card>div>span{display:inline-block;padding:12px 18px;border-radius:99px;background:#e28291;color:#fff;font-size:13px;font-weight:900}
       .kamishibai{display:grid;grid-template-columns:1.05fr .95fr;gap:7vw;align-items:center;background:#fff8f4}.kamishibai-image{padding:0 34px 36px 0}.kamishibai-image img{display:block;width:100%;border:8px solid #fffdf7;border-radius:40px 40px 15px 40px;box-shadow:10px 10px 0 #efb4bf}.kamishibai-copy h2{font-size:clamp(32px,4vw,52px);letter-spacing:.06em;line-height:1.4;margin:11px 0 22px}.kamishibai-copy>p{font-size:14px;line-height:2}
       @media(max-width:700px){.support{background-position:38% center}.support-inner{width:auto;margin:0}.support-message{margin-top:190px}.support h2{-webkit-text-stroke:.7px #493c35}}
@@ -76,7 +77,7 @@
           <h1 id="hero-title"><span class="title-line"><em>ミミ</em>はいつも</span><span class="title-line">ココにいるにゃ。</span></h1>
           <p class="hero-text">ミミの大きな夢への物語。</p>
           <div class="hero-actions">
-            <a class="button primary" href="https://www.youtube.com/@%E3%83%9F%E3%83%9F%E3%82%B3%E3%82%B3-z2d" target="_blank" rel="noreferrer">YouTubeをみる <span>↗</span></a>
+            <a class="button primary" href="https://www.youtube.com/@%E3%83%9F%E3%83%9F%E3%82%B3%E3%82%B3-z2d" target="_blank" rel="noreferrer">YouTubeをみる <span class="icon-arrow" aria-hidden="true"></span></a>
             <a class="button secondary" href="#friends">なかまたちへ</a>
           </div>
         </div>
@@ -87,7 +88,7 @@
           </div>
           <span class="doodle flower">✿</span><span class="doodle heart">♡</span><span class="doodle sparkle">✦</span>
         </div>
-        <p class="scroll">SCROLL <span>↓</span></p>
+        <p class="scroll">SCROLL <span class="icon-down" aria-hidden="true"></span></p>
       </section>
 
       <section id="about" class="intro section">
@@ -121,7 +122,7 @@
       </section>
 
       <section id="movies" class="movies section">
-        <div><p class="section-label">MIMI'S STORY</p><h2>ミミの夢を<br />いっしょに見よう</h2><p>ミミは、心の拠り所「こころのおうち」を作るという<br />大きな夢に向かって毎日一生懸命頑張っています。<br />新しいお話はYouTubeで公開中です。</p><a class="story-button" href="https://www.youtube.com/@%E3%83%9F%E3%83%9F%E3%82%B3%E3%82%B3-z2d" target="_blank" rel="noreferrer">ミミのお話を見に行く <span>▶</span></a></div>
+        <div><p class="section-label">MIMI'S STORY</p><h2>ミミの夢を<br />いっしょに見よう</h2><p>ミミは、心の拠り所「こころのおうち」を作るという<br />大きな夢に向かって毎日一生懸命頑張っています。<br />新しいお話はYouTubeで公開中です。</p><a class="story-button" href="https://www.youtube.com/@%E3%83%9F%E3%83%9F%E3%82%B3%E3%82%B3-z2d" target="_blank" rel="noreferrer">ミミのお話を見に行く <span class="icon-play" aria-hidden="true"></span></a></div>
         <div class="movie-card"><img src="assets/mimi-story-start.jpeg" alt="スーツ姿で就職を目指すミミ" /><div class="movie-info"><p>MIMI'S STORY</p><strong>ミミの大きな夢への<br />はじまり</strong><span>動画はYouTubeで公開中</span></div></div>
       </section>
 
@@ -149,29 +150,29 @@
       <section id="music" class="music section">
         <div class="section-heading"><p class="section-label">MIMI MUSIC</p><h2>ミミの音楽</h2></div>
         <div class="music-grid">
-          <a class="music-card music-video" href="https://youtu.be/KXw9BndrXYY?si=ZNdAYAXp7BUVJ30O" target="_blank" rel="noreferrer"><img src="https://i.ytimg.com/vi/KXw9BndrXYY/hqdefault.jpg" alt="ミミのミュージックビデオ" /><span class="music-type">MUSIC VIDEO</span><h3>ミミの<br />ミュージックビデオ</h3><div class="music-play">▶</div><span>動画を見る</span></a>
-          <article class="music-card"><span class="music-type">ORIGINAL SONG</span><h3>ミミの<br />オリジナルソング</h3><div class="music-play">▶</div><span>オリジナル曲を準備中です</span></article>
+          <a class="music-card music-video" href="https://youtu.be/KXw9BndrXYY?si=ZNdAYAXp7BUVJ30O" target="_blank" rel="noreferrer"><img src="https://i.ytimg.com/vi/KXw9BndrXYY/hqdefault.jpg" alt="ミミのミュージックビデオ" /><span class="music-type">MUSIC VIDEO</span><h3>ミミの<br />ミュージックビデオ</h3><div class="music-play" aria-hidden="true"></div><span>動画を見る</span></a>
+          <article class="music-card"><span class="music-type">ORIGINAL SONG</span><h3>ミミの<br />オリジナルソング</h3><div class="music-play" aria-hidden="true"></div><span>オリジナル曲を準備中です</span></article>
         </div>
         <p class="music-note">ミミの物語と一緒に楽しめる音楽を、少しずつお届けします。</p>
       </section>
 
       <section id="radio" class="radio section">
         <div class="radio-images"><img class="radio-host" src="assets/mimi-radio-host.jpg" alt="ラジオスタジオの作者ちゃんとミミ" /><img class="radio-mimi" src="assets/mimi-radio.jpg" alt="ヘッドホンをつけて笑うミミ" /></div>
-        <div class="radio-copy"><p class="section-label">SUB CHANNEL</p><h2>ミミと作者ちゃんの<br />おしゃべりラジオ</h2><p>ミミと作者ちゃんが、ミミココのありのままをお話しするラジオです。</p><a class="playlist-button" href="https://www.youtube.com/playlist?list=PLfHyQnddPmRM" target="_blank" rel="noreferrer">ラジオを聴く <span>▶</span></a></div>
+        <div class="radio-copy"><p class="section-label">SUB CHANNEL</p><h2>ミミと作者ちゃんの<br />おしゃべりラジオ</h2><p>ミミと作者ちゃんが、ミミココのありのままをお話しするラジオです。</p><a class="playlist-button" href="https://www.youtube.com/playlist?list=PLfHyQnddPmRM" target="_blank" rel="noreferrer">ラジオを聴く <span class="icon-play" aria-hidden="true"></span></a></div>
       </section>
 
       <section id="kamishibai" class="kamishibai section">
         <div class="kamishibai-image"><img src="assets/kamishibai.jpg" alt="桜並木を歩くミミ、ユキ、ココのミミココ紙芝居" /></div>
-        <div class="kamishibai-copy"><p class="section-label">MIMICOCO KAMISHIBAI</p><h2>ミミココ紙芝居</h2><p>水彩画で描くミミたちの紙芝居、ゆっくりのんびりお楽しみください。</p><a class="playlist-button" href="https://www.youtube.com/playlist?list=PLeeQzUBbo0-U" target="_blank" rel="noreferrer">紙芝居をみる <span>▶</span></a></div>
+        <div class="kamishibai-copy"><p class="section-label">MIMICOCO KAMISHIBAI</p><h2>ミミココ紙芝居</h2><p>水彩画で描くミミたちの紙芝居、ゆっくりのんびりお楽しみください。</p><a class="playlist-button" href="https://www.youtube.com/playlist?list=PLeeQzUBbo0-U" target="_blank" rel="noreferrer">紙芝居をみる <span class="icon-play" aria-hidden="true"></span></a></div>
       </section>
 
       <section id="goods" class="goods section">
         <div class="section-heading"><p class="section-label">GOODS</p><h2>ミミココグッズ</h2></div>
         <p class="goods-lead">ミミココの毎日を、あなたのそばにも。</p>
         <div class="goods-grid">
-          <a class="shop-card suzuri" href="https://suzuri.jp/mimicocoyuki" target="_blank" rel="noreferrer"><span class="shop-icon">S</span><div><small>OFFICIAL SHOP</small><h3>SUZURI</h3><p>ミミココのオリジナルグッズ</p></div><b>↗</b><img class="shop-example" src="assets/suzuri-goods-example.png" alt="SUZURIグッズの例、カレンダー" /></a>
-          <a class="shop-card line" href="https://line.me/S/sticker/36262519" target="_blank" rel="noreferrer"><span class="shop-icon">♡</span><div><small>LINE STICKERS</small><h3>LINEスタンプ</h3><p>ミミココと、毎日いっしょ。</p></div><b>↗</b><img class="shop-example" src="assets/line-sticker-example.png" alt="LINEスタンプの例" /></a>
-          <a class="shop-card booth" href="https://mimicocoyuki.booth.pm/" target="_blank" rel="noreferrer"><span class="shop-icon">B</span><div><small>ONLINE SHOP</small><h3>BOOTH</h3><p>ミミココのアイテムを見る</p></div><b>↗</b><img class="shop-example" src="assets/booth-goods-example.png" alt="BOOTHグッズの例" /></a>
+          <a class="shop-card suzuri" href="https://suzuri.jp/mimicocoyuki" target="_blank" rel="noreferrer"><span class="shop-icon">S</span><div><small>OFFICIAL SHOP</small><h3>SUZURI</h3><p>ミミココのオリジナルグッズ</p></div><b class="icon-external" aria-hidden="true"></b><img class="shop-example" src="assets/suzuri-goods-example.png" alt="SUZURIグッズの例、カレンダー" /></a>
+          <a class="shop-card line" href="https://line.me/S/sticker/36262519" target="_blank" rel="noreferrer"><span class="shop-icon">♡</span><div><small>LINE STICKERS</small><h3>LINEスタンプ</h3><p>ミミココと、毎日いっしょ。</p></div><b class="icon-external" aria-hidden="true"></b><img class="shop-example" src="assets/line-sticker-example.png" alt="LINEスタンプの例" /></a>
+          <a class="shop-card booth" href="https://mimicocoyuki.booth.pm/" target="_blank" rel="noreferrer"><span class="shop-icon">B</span><div><small>ONLINE SHOP</small><h3>BOOTH</h3><p>ミミココのアイテムを見る</p></div><b class="icon-external" aria-hidden="true"></b><img class="shop-example" src="assets/booth-goods-example.png" alt="BOOTHグッズの例" /></a>
         </div>
       </section>
 
@@ -190,7 +191,7 @@
         </div>
       </section>
 
-      <section class="cta"><p>ミミの夢を、いっしょに応援してにゃ。</p><a class="button primary" href="https://www.youtube.com/@%E3%83%9F%E3%83%9F%E3%82%B3%E3%82%B3-z2d" target="_blank" rel="noreferrer">ミミに会いに行く <span>↗</span></a></section>
+      <section class="cta"><p>ミミの夢を、いっしょに応援してにゃ。</p><a class="button primary" href="https://www.youtube.com/@%E3%83%9F%E3%83%9F%E3%82%B3%E3%82%B3-z2d" target="_blank" rel="noreferrer">ミミに会いに行く <span class="icon-arrow" aria-hidden="true"></span></a></section>
     </main>
     <footer><a class="wordmark" href="#top" aria-label="ミミココ トップへ"><img src="assets/mimikoko-logo.png" alt="ミミココ" /></a><p>© MIMICOCO</p></footer>
     <script src="script.js"></script>
