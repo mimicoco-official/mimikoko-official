@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://mimicoco-official.github.io/mimikoko-official/sitemap.xml
