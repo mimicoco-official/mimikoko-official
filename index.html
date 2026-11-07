@@ -48,7 +48,7 @@
       .character:not(.sibling-card) .portrait img{width:90%;height:90%;object-fit:contain}
     </style>
     <style>
-      .sibling-portrait{background:transparent!important;overflow:visible!important;display:grid;place-items:center}.sibling-portrait::before,.sibling-portrait::after{display:none}.sibling-silhouette{width:110%;aspect-ratio:1;display:grid;place-items:center;background:#352e30;color:#fff;font-size:48px;font-weight:900;line-height:1;clip-path:polygon(4% 26%,0 0,27% 17%,50% 11%,73% 17%,100% 0,96% 26%,100% 55%,90% 79%,72% 93%,50% 100%,28% 93%,10% 79%,0 55%)}
+      .sibling-portrait{background:#fff!important;overflow:hidden!important;display:grid;place-items:center}.sibling-portrait::before,.sibling-portrait::after{display:none}.sibling-portrait img{display:block;width:100%;height:100%;object-fit:contain}
       .music-grid{grid-template-columns:repeat(2,minmax(0,1fr));max-width:760px}.music-card.music-video{color:inherit}.music-card.music-video img{display:block;width:100%;aspect-ratio:16/9;object-fit:cover;border-radius:13px;margin-bottom:12px}.shop-example{grid-column:1/-1;width:100%;height:120px;object-fit:contain;background:#fff;border-radius:12px}.support-card{display:flex;align-items:center;gap:17px;max-width:720px;margin:28px auto 0;padding:20px 24px;border-radius:20px;background:#fff0c9;box-shadow:0 6px 0 #eac86c}.support-card>span{height:50px;width:50px;border-radius:50%;display:grid;place-items:center;background:#e5a12d;color:#fff;font-size:23px}.support-card small{font-size:9px;letter-spacing:.12em;color:#9a7621}.support-card h3{margin:3px 0;font-size:19px}.support-card p{margin:0;font-size:11px}.support-card b{margin-left:auto;font-size:13px;color:#b77a13;white-space:nowrap}@media(max-width:700px){.music-grid{grid-template-columns:1fr}.support-card{padding:17px;gap:11px}.support-card h3{font-size:15px}.support-card p{font-size:9px}.support-card b{font-size:11px}}
       .support{background:#fff1c7}.support-inner{max-width:780px;margin:auto;text-align:center}.support h2{font-size:clamp(30px,4vw,48px);margin:11px 0 28px}.support-message{background:#fffdf7;border:7px solid #fff;border-radius:30px;padding:30px 38px;box-shadow:9px 9px 0 #ebc763;font-size:14px;line-height:2;text-align:center}.support-message p{margin:0 0 22px}.support-note{font-size:11px;color:#806f55}.doneru-button{display:inline-flex;align-items:center;gap:12px;padding:14px 22px;border-radius:99px;background:#de8994;color:#fff;font-weight:900;box-shadow:0 5px 0 #bd6874;margin:0 0 22px;transition:.2s}.doneru-button:hover{transform:translateY(2px);box-shadow:0 3px 0 #bd6874}.doneru-button span{font-size:18px}@media(max-width:700px){.support-message{padding:24px 18px;font-size:13px}.support-note{font-size:10px}}
     </style>
@@ -92,7 +92,10 @@
       .book-opening.is-unfolding .opening-sparkles{opacity:1;filter:drop-shadow(0 0 7px #fff4a6);animation:opening-sparkle .7s ease-in-out infinite alternate}
       .book-opening.is-fading{opacity:0;transition:opacity .55s ease;pointer-events:none}
       @keyframes opening-sparkle{to{opacity:.58;filter:brightness(1.45) drop-shadow(0 0 11px #fff4a6)}}
-      @media(max-width:700px){.opening-book{width:min(84vw,440px)}.opening-cover{border-radius:15px}.opening-pages{border-radius:15px}.opening-skip{font-size:11px;padding:7px 13px}}
+      /* 正方形GIFはそのまま中央で見せ、周りだけ星空で補います。 */
+      .opening-book{width:min(82vw,620px);aspect-ratio:1}
+      .opening-gif{display:block;width:100%;height:100%;object-fit:contain;filter:drop-shadow(0 22px 25px rgba(0,0,0,.3))}
+      @media(max-width:700px){.opening-book{width:min(94vw,440px)}.opening-cover{border-radius:15px}.opening-pages{border-radius:15px}.opening-skip{font-size:11px;padding:7px 13px}}
       @media(prefers-reduced-motion:reduce){.opening-book,.opening-cover,.book-opening{transition-duration:.01ms!important}.opening-skip{display:none}}
     </style>
   </head>
@@ -101,8 +104,7 @@
       <div class="opening-sky" aria-hidden="true"></div>
       <div class="opening-sparkles" aria-hidden="true"></div>
       <div class="opening-book" aria-hidden="true">
-        <div class="opening-pages"><div class="opening-page"></div><div class="opening-page"></div></div>
-        <div class="opening-cover"><div class="opening-cover-art"></div></div>
+        <img class="opening-gif" src="assets/mimikoko-opening.gif" alt="" />
       </div>
       <button class="opening-skip" id="opening-skip" type="button">スキップ</button>
     </div>
@@ -156,7 +158,7 @@
             <article class="character mimi-card featured"><span class="number">MAIN CHARACTER</span><div class="portrait"><img src="assets/characters/mimi.png" alt="ミミ" /></div><h4>ミミ <small>しゅやく</small></h4><p>大きな夢に向かって進む、<br />やさしくて頑張り屋さんの子猫。</p></article>
             <article class="character mayumi-card"><span class="number">FAMILY</span><div class="portrait"><img src="assets/characters/mayumi.png" alt="お母ちゃん、まゆみ" /></div><h4>お母ちゃん <small>まゆみ</small></h4><p>ミミのお母ちゃん。<br />いつも元気でパワフル！</p></article>
             <article class="character densuke-card"><span class="number">FAMILY</span><div class="portrait"><img src="assets/characters/densuke.png" alt="お父ちゃん、伝助" /></div><h4>お父ちゃん <small>伝助</small></h4><p>感情表現は苦手だけど、<br />ちゃんと家族を大切に思ってる。</p></article>
-            <article class="character sibling-card"><span class="number">FAMILY</span><div class="portrait sibling-portrait"><span class="sibling-silhouette">？</span></div><h4>ミミの兄弟 <small>？</small></h4><p>ミミの兄弟。<br />どんな子かは、まだひみつ。</p></article>
+            <article class="character sibling-card"><span class="number">FAMILY</span><div class="portrait sibling-portrait"><img src="assets/characters/mimi-sibling.jpg" alt="ミミの兄弟を表す、はてなマークの猫のシルエット" /></div><h4>ミミの兄弟 <small>？</small></h4><p>ミミの兄弟。<br />どんな子かは、まだひみつ。</p></article>
           </div></section>
           <section class="character-group friends-group"><h3>お友達</h3><div class="character-grid">
             <article class="character coco-card"><span class="number">FRIEND</span><div class="portrait"><img src="assets/characters/coco.png" alt="ココちゃん" /></div><h4>ココちゃん</h4><p>ミミの大事なお友達。<br />しっかりものの子猫。</p></article>
