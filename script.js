@@ -21,9 +21,9 @@ if (opening && document.documentElement.classList.contains('has-opening-intro'))
     window.setTimeout(finishOpening, 250);
   } else {
     window.requestAnimationFrame(() => opening.classList.add('is-ready'));
-    window.setTimeout(() => opening.classList.add('is-open'), 800);
-    window.setTimeout(() => opening.classList.add('is-unfolding'), 2500);
-    window.setTimeout(finishOpening, 3500);
+    // GIFは約2.16秒でループするため、1周目の終わりで白く切り替えます。
+    window.setTimeout(() => opening.classList.add('is-whiteout'), 2050);
+    window.setTimeout(finishOpening, 2280);
   }
   openingSkip?.addEventListener('click', finishOpening);
 }
