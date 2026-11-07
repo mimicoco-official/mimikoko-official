@@ -22,7 +22,8 @@
     <link rel="stylesheet" href="style.css" />
     <script>
       try {
-        if (!localStorage.getItem('mimikoko-opening-seen')) {
+        const openingPreview = new URLSearchParams(window.location.search).get('opening') === 'preview';
+        if (openingPreview || !localStorage.getItem('mimikoko-opening-seen')) {
           document.documentElement.classList.add('has-opening-intro');
         }
       } catch (error) {

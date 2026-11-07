@@ -5,6 +5,7 @@ const nav = document.querySelector('.site-nav');
 const opening = document.querySelector('#book-opening');
 const openingSkip = document.querySelector('#opening-skip');
 const openingReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+const openingPreview = new URLSearchParams(window.location.search).get('opening') === 'preview';
 
 function finishOpening() {
   if (!opening || opening.dataset.finished === 'true') return;
@@ -14,7 +15,7 @@ function finishOpening() {
   window.setTimeout(() => opening.remove(), 650);
 }
 
-if (opening && document.documentElement.classList.contains('has-opening-intro')) {
+if (opening && (openingPreview || document.documentElement.classList.contains('has-opening-intro'))) {
   try { localStorage.setItem('mimikoko-opening-seen', 'true'); } catch (error) { /* 保存できない環境でもこの表示中だけ動作します。 */ }
 
   if (openingReducedMotion) {
