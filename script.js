@@ -13,6 +13,7 @@ let audioContext;
 let effectsMaster;
 let effectTimers = [];
 let resumeAfterVisibility = false;
+const forceAudioChoice = new URLSearchParams(window.location.search).get('sound') === 'choose';
 
 try { audioPreference = localStorage.getItem(AUDIO_SETTING_KEY); } catch (error) { /* 保存できないブラウザではこのページ内だけで動作します。 */ }
 
@@ -77,7 +78,7 @@ async function prepareEffects() {
   try { await context.resume(); } catch (error) { return false; }
   if (!effectsMaster) {
     effectsMaster = context.createGain();
-    effectsMaster.gain.value = 0.34;
+    effectsMaster.gain.value = 0.5;
     effectsMaster.connect(context.destination);
   }
   return context.state === 'running';
@@ -109,7 +110,7 @@ function paperSound(context) {
   filter.type = 'lowpass';
   filter.frequency.value = 1300;
   gain.gain.setValueAtTime(0.0001, context.currentTime);
-  gain.gain.exponentialRampToValueAtTime(0.09, context.currentTime + 0.035);
+  gain.gain.exponentialRampToValueAtTime(0.15, context.currentTime + 0.035);
   gain.gain.exponentialRampToValueAtTime(0.0001, context.currentTime + 0.25);
   source.buffer = buffer;
   source.connect(filter).connect(gain).connect(effectsMaster);
@@ -118,18 +119,18 @@ function paperSound(context) {
 
 function playOpeningChime(context) {
   const now = context.currentTime;
-  [523.25, 659.25, 783.99].forEach((frequency, index) => softTone(context, frequency, now + index * 0.11, 0.55, 0.055));
+  [523.25, 659.25, 783.99].forEach((frequency, index) => softTone(context, frequency, now + index * 0.11, 0.62, 0.095));
 }
 
 function playStarDust(context) {
   const now = context.currentTime;
-  [587.33, 698.46, 783.99, 880, 1046.5, 880, 783.99].forEach((frequency, index) => softTone(context, frequency, now + index * 0.075, 0.34, 0.038));
+  [587.33, 698.46, 783.99, 880, 1046.5, 880, 783.99].forEach((frequency, index) => softTone(context, frequency, now + index * 0.075, 0.38, 0.065));
 }
 
 function playWhiteout(context) {
   const now = context.currentTime;
-  softTone(context, 293.66, now, 0.48, 0.06);
-  softTone(context, 440, now + 0.08, 0.48, 0.042);
+  softTone(context, 293.66, now, 0.48, 0.095);
+  softTone(context, 440, now + 0.08, 0.48, 0.07);
 }
 
 function clearEffects() {
@@ -188,7 +189,7 @@ function startOpening(withSound) {
     if (withSound) {
       prepareEffects().then((context) => {
         if (!context || opening.dataset.finished === 'true') return;
-        effectsMaster.gain.setTargetAtTime(0.34, context.currentTime, 0.02);
+        effectsMaster.gain.setTargetAtTime(0.5, context.currentTime, 0.02);
         playOpeningChime(context);
         scheduleEffect(() => paperSound(context), 720);
         scheduleEffect(() => playStarDust(context), 1280);
@@ -199,7 +200,7 @@ function startOpening(withSound) {
 }
 
 if (opening && document.documentElement.classList.contains('has-opening-intro')) {
-  if (audioPreference === 'on' || audioPreference === 'off') startOpening(audioPreference === 'on');
+  if (!forceAudioChoice && (audioPreference === 'on' || audioPreference === 'off')) startOpening(audioPreference === 'on');
   else {
     opening.classList.add('is-choosing');
     audioChoiceOn?.focus();
