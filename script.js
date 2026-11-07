@@ -35,7 +35,7 @@ function fadeBgm(target, duration, done) {
   const startedAt = performance.now();
   const step = (now) => {
     const progress = Math.min(1, (now - startedAt) / duration);
-    bgm.volume = start + (target - start) * progress;
+    bgm.volume = Math.max(0, Math.min(1, start + (target - start) * progress));
     if (progress < 1) window.requestAnimationFrame(step);
     else done?.();
   };
