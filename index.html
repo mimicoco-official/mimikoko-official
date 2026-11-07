@@ -102,6 +102,8 @@
       .opening-audio-choice{position:relative;z-index:7;display:none;width:min(420px,calc(100% - 38px));padding:30px 25px;border:1px solid rgba(255,255,255,.7);border-radius:28px;background:rgba(10,29,80,.58);box-shadow:0 18px 45px rgba(0,0,0,.28);backdrop-filter:blur(8px);text-align:center}.opening-audio-choice h2{margin:0 0 12px;color:#fff8da;font-family:"Kiwi Maru",serif;font-size:clamp(22px,5vw,30px)}.opening-audio-choice p{margin:0 0 22px;color:#fff;line-height:1.8;font-size:14px}.opening-audio-actions{display:grid;gap:11px}.opening-audio-actions button{min-height:48px;border:0;border-radius:99px;padding:11px 18px;font:700 14px/1.4 "Zen Maru Gothic",sans-serif;cursor:pointer}.audio-choice-on{background:#fff0a8;color:#6e4b1d;box-shadow:0 4px 0 #c99844}.audio-choice-off{background:rgba(255,255,255,.94);color:#4a3c35}.book-opening.is-choosing .opening-audio-choice{display:block}.book-opening.is-choosing .opening-book,.book-opening.is-choosing .opening-skip{display:none}
       .music-toggle{position:fixed;z-index:21;right:clamp(190px,16vw,230px);bottom:max(22px,env(safe-area-inset-bottom));display:inline-flex;align-items:center;gap:7px;min-height:52px;padding:8px 13px;border:2px solid #fff8df;border-radius:99px;background:#f2b9c3;color:#fff;box-shadow:0 5px 0 #c47d8a;font:900 12px/1 "Zen Maru Gothic",sans-serif;cursor:pointer;transition:transform .2s,box-shadow .2s}.music-toggle:hover{transform:translateY(2px);box-shadow:0 3px 0 #c47d8a}.music-toggle:focus-visible{outline:3px solid #d79921;outline-offset:3px}.music-toggle-note{position:relative;width:19px;height:23px;font-size:23px;line-height:21px}.music-toggle:not(.is-playing){background:#aa9ca1;box-shadow:0 5px 0 #827379}.music-toggle:not(.is-playing) .music-toggle-note::after{content:"";position:absolute;left:-1px;top:11px;width:23px;height:2px;background:#fff;transform:rotate(-45deg);transform-origin:center}.music-toggle.is-playing .music-label::after{content:"ON"}.music-toggle:not(.is-playing) .music-label::after{content:"OFF"}@media(max-width:700px){.opening-audio-choice{padding:25px 18px}.opening-audio-choice p{font-size:13px}.music-toggle{right:114px;bottom:max(16px,env(safe-area-inset-bottom));min-width:58px;min-height:50px;padding:8px 10px;justify-content:center}.music-label{font-size:10px}}
       .radio{grid-template-columns:minmax(0,1.05fr) minmax(300px,.95fr)}.radio-images,.radio-copy{min-width:0}.radio-host{max-width:100%;height:auto}@media(max-width:700px){.radio{grid-template-columns:1fr}}
+      /* タブレット幅でも横にあふれず、音楽カードを読みやすく並べます。 */
+      body{overflow-x:hidden}.music,.music-grid{min-width:0}@media(max-width:1100px){.music .section-heading{display:block}.music .section-heading h2{margin:10px 0 24px}.music-grid{grid-template-columns:1fr;max-width:none}}
     </style>
   </head>
   <body>
@@ -269,6 +271,6 @@
     </aside>
     <audio id="site-bgm" preload="metadata" loop><source src="assets/audio/kokoniiruyo.mp4" type="audio/mp4" /></audio>
     <button class="music-toggle" id="music-toggle" type="button" aria-pressed="false" aria-label="音楽を再生する"><span class="music-toggle-note" aria-hidden="true">♪</span><span class="music-label" aria-hidden="true"></span></button>
-    <script src="script.js?v=20261107-4"></script>
+    <script src="script.js?v=20261107-5"></script>
   </body>
 </html>

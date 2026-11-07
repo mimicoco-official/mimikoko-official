@@ -13,7 +13,6 @@ let audioContext;
 let effectsMaster;
 let effectTimers = [];
 let resumeAfterVisibility = false;
-const forceAudioChoice = new URLSearchParams(window.location.search).get('sound') === 'choose';
 
 try { audioPreference = localStorage.getItem(AUDIO_SETTING_KEY); } catch (error) { /* 保存できないブラウザではこのページ内だけで動作します。 */ }
 
@@ -200,19 +199,18 @@ function startOpening(withSound) {
 }
 
 if (opening && document.documentElement.classList.contains('has-opening-intro')) {
-  if (!forceAudioChoice && (audioPreference === 'on' || audioPreference === 'off')) startOpening(audioPreference === 'on');
-  else {
-    opening.classList.add('is-choosing');
-    audioChoiceOn?.focus();
-    audioChoiceOn?.addEventListener('click', () => {
-      saveAudioPreference('on');
-      // タップの瞬間に音声を解放し、iPhone等の自動再生制限に対応します。
-      prepareEffects();
-      startBgm({ fadeIn: false });
-      startOpening(true);
-    });
-    audioChoiceOff?.addEventListener('click', () => { saveAudioPreference('off'); startOpening(false); });
-  }
+  // iPhoneなどでは、ページを開いた直後の音声再生が制限されます。
+  // そのため毎回ここで選んでもらい、効果音を確実に有効にします。
+  opening.classList.add('is-choosing');
+  audioChoiceOn?.focus();
+  audioChoiceOn?.addEventListener('click', () => {
+    saveAudioPreference('on');
+    // タップの瞬間に音声を解放し、iPhone等の自動再生制限に対応します。
+    prepareEffects();
+    startBgm({ fadeIn: false });
+    startOpening(true);
+  });
+  audioChoiceOff?.addEventListener('click', () => { saveAudioPreference('off'); startOpening(false); });
   openingSkip?.addEventListener('click', finishOpening);
 }
 
