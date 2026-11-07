@@ -81,7 +81,7 @@ async function prepareEffects() {
     effectsMaster.gain.value = 0.5;
     effectsMaster.connect(context.destination);
   }
-  return context.state === 'running';
+  return context.state === 'running' ? context : false;
 }
 
 function softTone(context, frequency, start, duration, volume, type = 'sine') {
