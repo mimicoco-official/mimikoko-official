@@ -1,11 +1,10 @@
 const button = document.querySelector('.menu-button');
 const nav = document.querySelector('.site-nav');
 
-// 最初の一度だけ、絵本のオープニングを表示します。
+// ホームページを開くたび、絵本のオープニングを表示します。
 const opening = document.querySelector('#book-opening');
 const openingSkip = document.querySelector('#opening-skip');
 const openingReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-const openingPreview = new URLSearchParams(window.location.search).get('opening') === 'preview';
 
 function finishOpening() {
   if (!opening || opening.dataset.finished === 'true') return;
@@ -15,8 +14,7 @@ function finishOpening() {
   window.setTimeout(() => opening.remove(), 650);
 }
 
-if (opening && (openingPreview || document.documentElement.classList.contains('has-opening-intro'))) {
-  try { localStorage.setItem('mimikoko-opening-seen', 'true'); } catch (error) { /* 保存できない環境でもこの表示中だけ動作します。 */ }
+if (opening && document.documentElement.classList.contains('has-opening-intro')) {
 
   if (openingReducedMotion) {
     opening.classList.add('is-ready');
