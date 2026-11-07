@@ -1,6 +1,34 @@
 const button = document.querySelector('.menu-button');
 const nav = document.querySelector('.site-nav');
 
+// 最初の一度だけ、絵本のオープニングを表示します。
+const opening = document.querySelector('#book-opening');
+const openingSkip = document.querySelector('#opening-skip');
+const openingReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+function finishOpening() {
+  if (!opening || opening.dataset.finished === 'true') return;
+  opening.dataset.finished = 'true';
+  opening.classList.add('is-fading');
+  document.documentElement.classList.remove('has-opening-intro');
+  window.setTimeout(() => opening.remove(), 650);
+}
+
+if (opening && document.documentElement.classList.contains('has-opening-intro')) {
+  try { localStorage.setItem('mimikoko-opening-seen', 'true'); } catch (error) { /* 保存できない環境でもこの表示中だけ動作します。 */ }
+
+  if (openingReducedMotion) {
+    opening.classList.add('is-ready');
+    window.setTimeout(finishOpening, 250);
+  } else {
+    window.requestAnimationFrame(() => opening.classList.add('is-ready'));
+    window.setTimeout(() => opening.classList.add('is-open'), 800);
+    window.setTimeout(() => opening.classList.add('is-unfolding'), 2500);
+    window.setTimeout(finishOpening, 3500);
+  }
+  openingSkip?.addEventListener('click', finishOpening);
+}
+
 button?.addEventListener('click', () => {
   const open = nav.classList.toggle('is-open');
   button.setAttribute('aria-expanded', String(open));

@@ -20,6 +20,15 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Kiwi+Maru:wght@400;500&family=Zen+Maru+Gothic:wght@400;500;700;900&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="style.css" />
+    <script>
+      try {
+        if (!localStorage.getItem('mimikoko-opening-seen')) {
+          document.documentElement.classList.add('has-opening-intro');
+        }
+      } catch (error) {
+        document.documentElement.classList.add('has-opening-intro');
+      }
+    </script>
     <style>
       .members-movies{background:#fff5c8}.members-inner{display:grid;grid-template-columns:1fr 1.1fr;gap:clamp(34px,7vw,92px);align-items:center}.members-card{background:#fffdf7;border:7px solid #fff;border-radius:32px;padding:26px;box-shadow:10px 10px 0 #f0c846}.lock-mark{width:48px;height:48px;border-radius:50%;background:#e5a12d;color:#fff;display:grid;place-items:center;font-size:20px;margin-bottom:14px}.members-card h3{font-size:22px;margin:0 0 8px}.members-card p{font-size:13px;line-height:1.8;margin:0}.members-note{font-size:12px;margin:18px 0 0;color:#8c6f42}.music{background:#e9f4dd}.music-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:17px}.music-card{background:#fffdf7;border-radius:24px;padding:22px;min-height:190px;display:flex;flex-direction:column;justify-content:space-between;box-shadow:6px 7px 0 #b6d193}.music-type{font-size:10px;font-weight:700;letter-spacing:.12em;color:#629452}.music-card h3{font-size:21px;line-height:1.45;margin:8px 0}.music-play{height:38px;width:38px;border-radius:50%;background:#6fa25e;color:#fff;display:grid;place-items:center;font-size:13px}.music-card span:last-child{font-size:11px;color:#7a766d}.music-note{text-align:center;font-size:12px;line-height:1.8;margin:30px 0 0}@media(max-width:700px){.members-inner{grid-template-columns:1fr}.music-grid{grid-template-columns:1fr;gap:12px}.music-card{min-height:145px}}
       .goods{background:#fff8ee}.goods-lead{font-size:14px;margin:-18px 0 30px}.goods-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.shop-card{display:grid;grid-template-columns:47px 1fr 20px;gap:13px;align-items:center;background:#fff;border-radius:20px;padding:19px;transition:transform .2s,box-shadow .2s}.shop-card:hover{transform:translateY(-4px);box-shadow:0 8px 0 #dfcbb0}.shop-icon{height:47px;width:47px;border-radius:15px;display:grid;place-items:center;font-size:20px;font-weight:900;color:#fff}.shop-card small{font-size:9px;letter-spacing:.1em;color:#796d64}.shop-card h3{font-size:19px;margin:2px 0}.shop-card p{font-size:10px;margin:0;color:#796d64}.shop-card b{font-size:18px;font-weight:400}.suzuri .shop-icon{background:#e0a23d}.line .shop-icon{background:#75ba65}.booth .shop-icon{background:#5f98cc}@media(max-width:700px){.goods-grid{grid-template-columns:1fr}.goods-lead{margin-top:-12px}}
@@ -67,8 +76,45 @@
       @media(max-width:700px){.kamishibai{grid-template-columns:1fr;gap:35px}.kamishibai-image{padding-right:34px}.kamishibai-copy h2{font-size:31px}.kamishibai-card{grid-template-columns:1fr;border-radius:20px}.kamishibai-card img{min-height:0;aspect-ratio:16/9}.kamishibai-card>div{padding:27px 23px}.kamishibai-card h2{font-size:31px}}
       .mimi-guide{position:fixed;right:clamp(16px,2.5vw,34px);bottom:max(18px,env(safe-area-inset-bottom));z-index:20;width:150px;display:flex;flex-direction:column;align-items:flex-end;pointer-events:none}.mimi-guide-button{width:150px;padding:0;border:0;background:transparent;cursor:pointer;pointer-events:auto;filter:drop-shadow(0 7px 6px rgba(73,60,53,.18));transition:transform .2s ease}.mimi-guide-button:hover{transform:translateY(-4px) rotate(1deg)}.mimi-guide-button:focus-visible{outline:3px solid #d79921;outline-offset:5px;border-radius:30px}.mimi-guide-image{display:block;width:100%;height:auto}.mimi-bubble{position:absolute;right:8px;bottom:128px;width:230px;padding:14px 16px;border:2px solid #eadfae;border-radius:20px;background:#fffdf7;color:#493c35;box-shadow:0 6px 0 rgba(197,157,57,.25);font-size:13px;font-weight:700;line-height:1.65;opacity:0;transform:translateY(8px) scale(.96);transform-origin:bottom right;visibility:hidden;transition:opacity .35s ease,transform .35s ease,visibility 0s linear .35s}.mimi-bubble::after{content:"";position:absolute;right:35px;bottom:-10px;width:17px;height:17px;background:#fffdf7;border-right:2px solid #eadfae;border-bottom:2px solid #eadfae;transform:rotate(45deg)}.mimi-bubble.is-visible{opacity:1;transform:translateY(0) scale(1);visibility:visible;transition:opacity .35s ease,transform .35s ease}.mimi-bubble p{margin:0;position:relative;z-index:1}@media(max-width:700px){.mimi-guide{right:10px;bottom:max(12px,env(safe-area-inset-bottom));width:95px}.mimi-guide-button{width:95px}.mimi-bubble{right:0;bottom:82px;width:min(214px,calc(100vw - 28px));padding:11px 13px;border-radius:17px;font-size:12px;line-height:1.55}.mimi-bubble::after{right:22px;width:14px;height:14px;bottom:-8px}}@media(prefers-reduced-motion:reduce){.mimi-guide-button,.mimi-bubble{transition:none}.mimi-guide-button:hover{transform:none}}
     </style>
+    <style>
+      html.has-opening-intro,html.has-opening-intro body{overflow:hidden}
+      .book-opening{display:none;position:fixed;inset:0;z-index:9999;place-items:center;overflow:hidden;background:#071342;color:#fff}
+      .has-opening-intro .book-opening{display:grid}
+      .opening-sky{position:absolute;inset:0;overflow:hidden;background:radial-gradient(circle at 50% 58%,#314f9f 0%,#102b73 37%,#071342 76%)}
+      .opening-sky::before,.opening-sky::after{content:"";position:absolute;inset:-20%;background-image:radial-gradient(circle,#fff7c2 0 1px,transparent 2px),radial-gradient(circle,#fff 0 1.3px,transparent 2.3px),radial-gradient(circle,#d7e8ff 0 1px,transparent 2px);background-size:83px 91px,127px 119px,61px 73px;background-position:0 0,31px 57px,18px 22px;opacity:.8;animation:opening-twinkle 2.6s ease-in-out infinite alternate}
+      .opening-sky::after{opacity:.45;transform:scale(1.2);animation-delay:-1.3s}
+      .opening-sparkles{position:absolute;inset:0;pointer-events:none;background:radial-gradient(circle at 20% 38%,rgba(255,238,150,.95) 0 2px,transparent 5px),radial-gradient(circle at 74% 30%,rgba(255,247,194,.95) 0 2px,transparent 5px),radial-gradient(circle at 82% 67%,rgba(255,225,130,.8) 0 2px,transparent 5px),radial-gradient(circle at 28% 75%,rgba(255,250,214,.8) 0 2px,transparent 5px);opacity:.9}
+      .opening-book{position:relative;width:min(72vw,660px);aspect-ratio:1.04;perspective:1800px;opacity:0;transform:translateY(18px) scale(.94);filter:drop-shadow(0 26px 24px rgba(0,0,0,.38));transition:opacity .62s ease,transform .62s cubic-bezier(.2,.8,.28,1),filter .6s ease}
+      .opening-pages{position:absolute;inset:0;display:grid;grid-template-columns:1fr 1fr;border-radius:clamp(12px,2vw,24px);overflow:hidden;background:#fff5d7;box-shadow:inset 0 0 0 3px #e6bd70,0 0 0 5px rgba(255,244,201,.44)}
+      .opening-page{position:relative;background:linear-gradient(115deg,#fff8e7,#fff1cf 55%,#f3d9a3);box-shadow:inset -12px 0 16px rgba(131,89,35,.13)}
+      .opening-page:last-child{background:linear-gradient(245deg,#fff8e7,#fff1cf 55%,#f3d9a3);box-shadow:inset 12px 0 16px rgba(131,89,35,.13)}
+      .opening-page:first-child::after{content:"";position:absolute;right:-1px;top:0;bottom:0;width:3px;background:#c59143;box-shadow:3px 0 8px rgba(71,41,16,.34)}
+      .opening-cover{position:absolute;inset:0;z-index:3;transform-origin:left center;transform-style:preserve-3d;border-radius:clamp(12px,2vw,24px);overflow:hidden;background:#fff4d2;box-shadow:inset 0 0 0 4px #e2b365,0 9px 0 #bd8640,0 18px 25px rgba(0,0,0,.28);transition:transform 1.7s cubic-bezier(.3,.06,.16,1),box-shadow 1.7s ease}
+      .opening-cover-art{position:absolute;inset:0;background-image:url("assets/mimikoko-opening-book.png");background-repeat:no-repeat;background-size:261% 151.8%;background-position:50% 49.3%;backface-visibility:hidden}
+      .opening-cover::after{content:"";position:absolute;inset:0;border-radius:inherit;box-shadow:inset 0 0 0 3px rgba(255,240,192,.8),inset 0 -8px 12px rgba(119,73,21,.16);pointer-events:none}
+      .opening-light{position:absolute;z-index:4;left:50%;top:50%;width:12%;aspect-ratio:1;border-radius:50%;background:#fff9d9;box-shadow:0 0 18px 12px rgba(255,225,124,.95),0 0 100px 50px rgba(255,208,90,.76);opacity:0;transform:translate(-50%,-50%) scale(.3);transition:opacity .6s ease,transform 1.05s cubic-bezier(.2,.75,.25,1)}
+      .opening-skip{position:absolute;z-index:6;right:clamp(16px,4vw,44px);top:max(16px,env(safe-area-inset-top));border:1px solid rgba(255,255,255,.7);border-radius:99px;padding:8px 15px;background:rgba(9,22,70,.38);color:#fff;font:700 12px/1 "Zen Maru Gothic",sans-serif;letter-spacing:.08em;cursor:pointer;opacity:.78}.opening-skip:hover,.opening-skip:focus-visible{opacity:1;background:rgba(9,22,70,.7)}
+      .book-opening.is-ready .opening-book{opacity:1;transform:translateY(0) scale(1)}
+      .book-opening.is-open .opening-cover{transform:rotateY(-142deg);box-shadow:inset 0 0 0 4px #e2b365,0 9px 0 #bd8640,0 18px 25px rgba(0,0,0,.18)}
+      .book-opening.is-unfolding .opening-light{opacity:1;transform:translate(-50%,-50%) scale(15)}
+      .book-opening.is-unfolding .opening-book{filter:drop-shadow(0 0 28px rgba(255,241,177,.9));transition-duration:.85s}
+      .book-opening.is-fading{opacity:0;transition:opacity .55s ease;pointer-events:none}
+      @keyframes opening-twinkle{to{opacity:.45;filter:brightness(1.45)}}
+      @media(max-width:700px){.opening-book{width:min(84vw,440px)}.opening-cover{border-radius:15px}.opening-pages{border-radius:15px}.opening-skip{font-size:11px;padding:7px 13px}}
+      @media(prefers-reduced-motion:reduce){.opening-sky::before,.opening-sky::after{animation:none}.opening-book,.opening-cover,.opening-light,.book-opening{transition-duration:.01ms!important}.opening-skip{display:none}}
+    </style>
   </head>
   <body>
+    <div class="book-opening" id="book-opening" role="status" aria-label="ミミココの絵本を開いています" aria-live="polite">
+      <div class="opening-sky" aria-hidden="true"></div>
+      <div class="opening-sparkles" aria-hidden="true"></div>
+      <div class="opening-book" aria-hidden="true">
+        <div class="opening-pages"><div class="opening-page"></div><div class="opening-page"></div></div>
+        <div class="opening-cover"><div class="opening-cover-art"></div></div>
+        <div class="opening-light"></div>
+      </div>
+      <button class="opening-skip" id="opening-skip" type="button">スキップ</button>
+    </div>
     <header class="site-header">
       <button class="menu-button" type="button" aria-expanded="false" aria-controls="site-nav">MENU</button>
       <nav id="site-nav" class="site-nav" aria-label="メインメニュー">
