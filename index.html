@@ -105,6 +105,7 @@
       /* タブレット幅でも横にあふれず、音楽カードを読みやすく並べます。 */
       body{overflow-x:hidden}.music,.music-grid{min-width:0}@media(max-width:1100px){.music .section-heading{display:block}.music .section-heading h2{margin:10px 0 24px}.music-grid{grid-template-columns:1fr;max-width:none}}
       .theme-song{background:#fffdf7;text-align:center}.theme-song-inner{max-width:760px;margin:0 auto}.theme-song h2{font-size:clamp(30px,4vw,47px);margin:10px 0 4px}.theme-song-title{margin:0 0 34px;color:#d79921;font-family:"Kiwi Maru",serif;font-size:clamp(20px,3vw,27px);font-weight:700}.lyrics-card{padding:clamp(26px,5vw,48px);border:7px solid #fff;border-radius:32px;background:#fff7d8;box-shadow:9px 9px 0 #efcf76;text-align:left}.lyrics-card h3{margin:0 0 24px;text-align:center;color:#c98b1f;font-family:"Kiwi Maru",serif;font-size:21px}.lyrics-card p{margin:0 0 25px;font-size:15px;line-height:2.15;white-space:pre-line}.lyrics-card p:last-child{margin-bottom:0}.lyrics-verse{display:inline-block;margin-bottom:11px;padding:5px 13px;border-radius:99px;background:#fffdf7;color:#c98b1f;font-size:12px;font-weight:700}@media(max-width:700px){.theme-song h2{font-size:29px}.theme-song-title{margin-bottom:25px}.lyrics-card{padding:25px 20px;border-width:5px;border-radius:24px;box-shadow:6px 6px 0 #efcf76}.lyrics-card p{font-size:13px;line-height:2.05}}
+      .social{background:#f7e8df}.social-inner{max-width:940px;margin:0 auto;text-align:center}.social h2{font-size:clamp(30px,4vw,47px);margin:10px 0 10px}.social-lead{margin:0 0 30px;font-size:14px;line-height:1.8}.social-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.social-card{min-height:164px;padding:23px 20px;border:6px solid #fffdf7;border-radius:27px;background:#fffdf7;box-shadow:7px 8px 0 #e6bca4;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;transition:transform .2s,box-shadow .2s}.social-card:hover{transform:translateY(3px);box-shadow:4px 5px 0 #e6bca4}.social-mark{display:grid;place-items:center;width:43px;height:43px;border-radius:50%;background:#d88978;color:#fffdf7;font-size:20px;font-weight:900}.social-card h3{margin:0;font-size:22px}.social-card span:last-child{font-size:11px;color:#806f55}@media(max-width:700px){.social-grid{grid-template-columns:1fr;gap:13px}.social-card{min-height:132px;padding:19px}.social-lead{font-size:13px}}
     </style>
   </head>
   <body>
@@ -243,6 +244,25 @@
           <a class="shop-card suzuri" href="https://suzuri.jp/mimicocoyuki" target="_blank" rel="noreferrer"><span class="shop-icon">S</span><div><small>OFFICIAL SHOP</small><h3>SUZURI</h3><p>ミミココのオリジナルグッズ</p></div><img class="shop-example" src="assets/suzuri-goods-example.png" alt="SUZURIグッズの例、カレンダー" /></a>
           <a class="shop-card line" href="https://line.me/S/sticker/36262519" target="_blank" rel="noreferrer"><span class="shop-icon">♡</span><div><small>LINE STICKERS</small><h3>LINEスタンプ</h3><p>ミミココと、毎日いっしょ。</p></div><img class="shop-example" src="assets/line-sticker-example.png" alt="LINEスタンプの例" /></a>
           <a class="shop-card booth" href="https://mimicocoyuki.booth.pm/" target="_blank" rel="noreferrer"><span class="shop-icon">B</span><div><small>ONLINE SHOP</small><h3>BOOTH</h3><p>ミミココのアイテムを見る</p></div><img class="shop-example" src="assets/booth-goods-example.png" alt="BOOTHグッズの例" /></a>
+        </div>
+      </section>
+
+      <section id="social" class="social section" aria-labelledby="social-heading">
+        <div class="social-inner">
+          <p class="section-label">FOLLOW MIMICOCO</p>
+          <h2 id="social-heading">ミミココのSNS</h2>
+          <p class="social-lead">SNSでも、ミミココの毎日をお届けしています。</p>
+          <div class="social-grid">
+            <a class="social-card" href="https://www.instagram.com/mimicocoyuki.0217/" target="_blank" rel="noreferrer" aria-label="Instagramを開く">
+              <span class="social-mark" aria-hidden="true">◎</span><h3>Instagram</h3><span>@mimicocoyuki.0217</span>
+            </a>
+            <a class="social-card" href="https://www.tiktok.com/@mimicocoyuki" target="_blank" rel="noreferrer" aria-label="TikTokを開く">
+              <span class="social-mark" aria-hidden="true">♪</span><h3>TikTok</h3><span>@mimicocoyuki</span>
+            </a>
+            <a class="social-card" href="https://x.com/mimicocoyuki121" target="_blank" rel="noreferrer" aria-label="Xを開く">
+              <span class="social-mark" aria-hidden="true">𝕏</span><h3>X</h3><span>@mimicocoyuki121</span>
+            </a>
+          </div>
         </div>
       </section>
 
